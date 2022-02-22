@@ -148,6 +148,7 @@ main form {
 p {
   position: relative;
   display: block;
+  cursor: pointer;
 }
 .quantity-controller p {
   line-height: 24px;
@@ -159,9 +160,11 @@ p {
   border-radius: 5px;
   padding: 5px;
   text-align: center;
+  cursor: pointer;
 }
 .quantity-controller button i {
   font-size: 12px;
+  cursor: pointer;
 }
 .buy-detail {
   margin: 5px 0;
