@@ -148,7 +148,6 @@ main form {
 p {
   position: relative;
   display: block;
-  cursor: pointer;
 }
 .quantity-controller p {
   line-height: 24px;
@@ -164,7 +163,6 @@ p {
 }
 .quantity-controller button i {
   font-size: 12px;
-  cursor: pointer;
 }
 .buy-detail {
   margin: 5px 0;
@@ -188,6 +186,9 @@ p {
   text-decoration: line-through;
 }
 
+.product-removal button{
+  cursor: pointer;
+}
 
 
 

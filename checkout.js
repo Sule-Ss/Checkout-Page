@@ -1,6 +1,6 @@
 let number = document.querySelectorAll("#product-quantity");
-let minus = document.querySelectorAll(".fa-minus");
-let plus = document.querySelectorAll(".fa-plus");
+let minus = document.querySelectorAll(".minus");
+let plus = document.querySelectorAll(".plus");
 let removeButton = document.querySelectorAll(".remove-product");
 let products = document.querySelectorAll(".product");
 let priceProducts = document.querySelectorAll("strong");
@@ -17,6 +17,25 @@ for (let i = 0; i < number.length; i++) {
   removeButton[i].addEventListener("click", () => {
     if (confirm("Are you sure you want to delete this product?") == true) {
       products[i].remove();
+      if (priceLine[i].innerHTML != "") {
+        subTotal.lastElementChild.innerHTML = (
+          Number(subTotal.lastElementChild.innerHTML) -
+          Number(priceLine[i].innerHTML)
+        ).toFixed(2);
+        if(subTotal.lastElementChild.innerHTML == 0){
+          shipping.lastElementChild.innerHTML = "0";
+        }
+        tax.lastElementChild.innerHTML = (
+          (Number(subTotal.lastElementChild.innerHTML) * 18) /
+          100
+        ).toFixed(2);
+        total.lastElementChild.innerHTML = (
+          Number(subTotal.lastElementChild.innerHTML) +
+          Number(tax.lastElementChild.innerHTML) +
+          Number(shipping.lastElementChild.innerHTML)
+        ).toFixed(2);
+        
+      }
     }
   });
 }
@@ -45,6 +64,9 @@ for (let i = 0; i < number.length; i++) {
       number[i].innerHTML -= 1;
       if (confirm("Are you sure you want to delete this product?") == true) {
         products[i].remove();
+        /*  if(priceLine.innerHTML != ""){
+          subTotal.lastElementChild.innerHTML -= priceLine.innerHTML;
+        } */
       } else {
         number[i].innerHTML = "0";
         number[i].disabled = true;
